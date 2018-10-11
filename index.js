@@ -1,8 +1,9 @@
-const attachRelativeScroller = (child1, child2, parentNode) => {
-    parentNode = $(parentNode);
+const attachRelativeScroller = (childrenNodes, parentNode) => {
+    childrenNodes.forEach
+
     child1 = $(child1);
     child2 = $(child2);
-    const parentHeight = parentNode.outerHeight();
+    const parentHeight = parentNode.offsetHeight;
   
     const getPosRelToParent = (elem) => {
       const parentPos = parentNode.offset();
@@ -21,6 +22,13 @@ const attachRelativeScroller = (child1, child2, parentNode) => {
         initialPosition: child.css('position') || 'initial',
       };
     };
+
+    childrenNodesStates = childrenNodes.reduce((states, child) => {
+        return states.concat([getChildInitialState(child)]);
+    }, [])
+
+
+
   
     const child1State = getChildInitialState(child1);
     const child2State = getChildInitialState(child2);
